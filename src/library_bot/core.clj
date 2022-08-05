@@ -55,7 +55,7 @@
     (when (not= @old-books new-books)
       (do
         (reset! old-books new-books)
-        (map #(t/send-text token id (str "New book: " %)) (difference (get-books-titles) @old-books))
+        (map #(t/send-text token id (str "New book: " %)) (difference new-books @old-books))
         (str "New books: " (difference new-books @old-books))))))
 
 (defn -main
